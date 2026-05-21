@@ -1,6 +1,6 @@
 ---
 description: Identify the three ODI customer types (executor / lifecycle / buyer) for your job. Critical for B2B — skipping the buyer is how most B2B ODI engagements fail. (Ch 5)
-argument-hint: [--job "<locked job statement>"] [--context "B2B SaaS | B2C consumer | medical device | …"]
+argument-hint: "[--job \"<locked job statement>\"] [--context \"B2B SaaS | B2C consumer | medical device | …\"]"
 ---
 
 # /identifycustomers — Who do I interview?

@@ -1,6 +1,6 @@
 ---
-description: PHASE VII FINAL — Bundle the engagement into EXACTLY the six Table 30.1 artifacts + Canvas + executive summary + coverage report. Refuses to ship if any artifact is missing. Aliases: /ship, /packageproject.
-argument-hint: [--project-dir .] [--zip]
+description: "PHASE VII FINAL — Bundle the engagement into EXACTLY the six Table 30.1 artifacts + Canvas + executive summary + coverage report. Refuses to ship if any artifact is missing. Aliases: /ship, /packageproject."
+argument-hint: "[--project-dir .] [--zip]"
 ---
 
 # /exportdeliverables (aka /ship, /packageproject) — Bundle the six artifacts

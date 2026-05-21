@@ -1,6 +1,6 @@
 ---
-description: SYNTHETIC PIPELINE — Mine public data → synthesize 10 grounded personas → simulate an ODI survey. HYPOTHESIS-GENERATION ONLY. Statistical validity is bounded by persona count (~10 archetypes), NOT by total row count. Long-tail outcomes are systematically under-counted. Use /researchpath for decision-grade output without interviews. Alias: /synthsurvey.
-argument-hint: "<job statement>" [--n-personas 10] [--n-responses-per-persona 60]
+description: "SYNTHETIC PIPELINE — Mine public data → synthesize 10 grounded personas → simulate an ODI survey. HYPOTHESIS-GENERATION ONLY. Statistical validity is bounded by persona count (~10 archetypes), NOT by total row count. Long-tail outcomes are systematically under-counted. Use /researchpath for decision-grade output without interviews. Alias: /synthsurvey."
+argument-hint: "\"<job statement>\" [--n-personas 10] [--n-responses-per-persona 60]"
 ---
 
 # /run-synthetic-survey (aka /synthsurvey) — The virtual respondent panel

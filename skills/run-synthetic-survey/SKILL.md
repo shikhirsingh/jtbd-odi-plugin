@@ -12,10 +12,6 @@ inputs:
   - optional: existing netted-outcomes.csv (otherwise the orchestrator runs /mineoutcomes + /netoutcomes internally)
   - n_personas (DEFAULT 10; range 6–20). Higher persona count = more archetype-level distinctions. Statistical power is bounded by persona count, NOT by row count.
   - n_responses_per_persona (default 60; range 30–120). Adds within-persona variation; does NOT add independent observations.
-
-  > **⚠️ Sample-size honesty (read this).** Tony Ulwick's method requires n=300–600 REAL respondents because each is an independent observation drawn from the actual population. A synthetic run with 10 personas × 60 rows = 600 rows, but statistically you have **10 archetype-level signals**, not 600. The 60-row spread per persona is noise around the persona's locked biases — it does not give you statistical power. /computescores will compute opportunity scores normally, but the resulting numbers reflect persona design choices, not a real population distribution.
-  >
-  > If decision-grade output matters, use **/researchpath** (real n=300-600 survey on mined outcomes) or **/runfullodi --mode real** (real interviews + real survey). /run-synthetic-survey is hypothesis-only.
 outputs:
   - personas.json (the 5–8 grounded personas)
   - synthetic_survey.csv (the exact schema /computescores expects)
@@ -47,6 +43,10 @@ helpers:
 ---
 
 # /run-synthetic-survey — The Virtual Respondent Panel
+
+> **⚠️ Sample-size honesty (read this).** Tony Ulwick's method requires n=300–600 REAL respondents because each is an independent observation drawn from the actual population. A synthetic run with 10 personas × 60 rows = 600 rows, but statistically you have **10 archetype-level signals**, not 600. The 60-row spread per persona is noise around the persona's locked biases — it does not give you statistical power. `/computescores` will compute opportunity scores normally, but the resulting numbers reflect persona design choices, not a real population distribution.
+>
+> If decision-grade output matters, use **/researchpath** (real n=300–600 survey on mined outcomes) or **/runfullodi --mode real** (real interviews + real survey). `/run-synthetic-survey` is hypothesis-only.
 
 ## Plain-English preamble (for newcomers)
 

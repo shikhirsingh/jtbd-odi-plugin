@@ -1,6 +1,6 @@
 ---
 description: ORCHESTRATOR — A complete ODI engagement that REPLACES interviews with thorough online research, then fields a REAL n=300-600 survey on the mined outcomes. Output is DECISION-GRADE (because the survey is real) and shaves 2-3 weeks off the timeline by skipping interview recruiting.
-argument-hint: "<locked job statement>" [--sources reddit,amazon,quora,appstore,...]
+argument-hint: "\"<locked job statement>\" [--sources reddit,amazon,quora,appstore,...]"
 ---
 
 # /researchpath — Skip interviews, keep rigor

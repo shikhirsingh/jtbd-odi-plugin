@@ -1,6 +1,6 @@
 ---
 description: Show what the plugin actually produces. Walks through a worked example (Bosch CS20 or "listen to music") and shows realistic outputs for every artifact — without running a real engagement. The "see before you commit" command.
-argument-hint: [saw|music|both] (default: ask the user)
+argument-hint: "[saw|music|both] (default: ask the user)"
 ---
 
 # /demo — See the outputs before committing

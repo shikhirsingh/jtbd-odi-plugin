@@ -24,13 +24,13 @@ inputs:
   - best competitor's top-2-box satisfaction for the outcome
   - product constraints (cost, mass, regulatory, manufacturing)
 outputs:
-  - **5-field spec sheet** (Ch 28): outcome / solution concepts / acceptance criteria / success metric / engineering brief
-  - **Agile user story** (As X, I want Y, so that Z) with INVEST-checked acceptance criteria
-  - **Full PRD document** in Markdown — Background / Problem / Goals / Non-goals / Acceptance / Success metrics / Risks / Open questions / Out-of-scope / Rollout
-  - **Linear/Jira-importable JSON** — issue title, description, story points estimate, labels, acceptance criteria as a checklist
-  - **ADR (Architecture Decision Record)** if the outcome requires a technical choice between solution concepts
-  - **Success-metric dashboard query** — a hypothetical analytics query that would tell you if the outcome moved post-launch
-  - **All artifacts share the same outcome_id** so they cross-link
+  - "**5-field spec sheet** (Ch 28): outcome / solution concepts / acceptance criteria / success metric / engineering brief"
+  - "**Agile user story** (As X, I want Y, so that Z) with INVEST-checked acceptance criteria"
+  - "**Full PRD document** in Markdown — Background / Problem / Goals / Non-goals / Acceptance / Success metrics / Risks / Open questions / Out-of-scope / Rollout"
+  - "**Linear/Jira-importable JSON** — issue title, description, story points estimate, labels, acceptance criteria as a checklist"
+  - "**ADR (Architecture Decision Record)** if the outcome requires a technical choice between solution concepts"
+  - "**Success-metric dashboard query** — a hypothetical analytics query that would tell you if the outcome moved post-launch"
+  - "**All artifacts share the same outcome_id** so they cross-link"
 chains_to: []
 ---
 

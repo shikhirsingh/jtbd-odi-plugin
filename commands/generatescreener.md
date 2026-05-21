@@ -1,6 +1,6 @@
 ---
 description: Build the recruiting screener — the 5–10 questions a panel provider will use to filter for real job-executors / buyers / lifecycle-support people. Includes incidence estimate, quota plan, and incentive recommendation. (Ch 9 + Ch 15/18)
-argument-hint: [--customer-type executor|buyer|lifecycle] [--audience "<description>"]
+argument-hint: "[--customer-type executor|buyer|lifecycle] [--audience \"<description>\"]"
 ---
 
 # /generatescreener — Who you're recruiting + how

@@ -1,5 +1,5 @@
 ---
-description: PHASE II FINAL — Dedupe + clean 300–600 raw candidate outcomes into the final 50–150 survey-ready outcomes (Template 3, Ch 14). Alias: /refineoutcomes.
+description: "PHASE II FINAL — Dedupe + clean 300–600 raw candidate outcomes into the final 50–150 survey-ready outcomes (Template 3, Ch 14). Alias: /refineoutcomes."
 argument-hint: <path to raw outcomes CSV OR folder of /extractoutcomes outputs>
 ---
 

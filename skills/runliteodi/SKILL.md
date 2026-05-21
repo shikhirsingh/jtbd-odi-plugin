@@ -1,6 +1,6 @@
 ---
 name: runliteodi
-description: Run the qualitative-only Lite ODI engagement — the "no survey" path described in Chapter 4 ("The lite version: qualitative-only ODI"). Produces a directional opportunity hypothesis from interviews alone (no quant). Useful when budget or timeline precludes a 300–600 person survey but the team still needs a defensible prioritization read.
+description: "Run the qualitative-only Lite ODI engagement — the \"no survey\" path described in Chapter 4 (\"The lite version: qualitative-only ODI\"). Produces a directional opportunity hypothesis from interviews alone (no quant). Useful when budget or timeline precludes a 300–600 person survey but the team still needs a defensible prioritization read."
 when_to_use: User explicitly asks for lite ODI, says "we can't field a survey", or invokes /runliteodi. Also triggered by "/runliteodi", "qualitative ODI only", "ODI without survey", "no panel budget".
 trigger_phrases:
   - /runliteodi
@@ -11,7 +11,7 @@ trigger_phrases:
 inputs:
   - locked job statement + job map
   - 8–15 qualitative interview transcripts (recommended — Lite ODI runs on a smaller n than the full method)
-  - optional: mined-outcomes.csv from /mineoutcomes (to triangulate)
+  - "optional: mined-outcomes.csv from /mineoutcomes (to triangulate)"
 outputs:
   - lite_opportunity_hypothesis.md — directional rank-ordered opportunities with explicit "qualitative only" disclaimer
   - lite_segments.md — narrative segments (NOT outcome-based clusters — qualitative archetypes, named & limited)

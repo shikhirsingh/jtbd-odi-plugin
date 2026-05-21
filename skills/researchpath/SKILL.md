@@ -15,12 +15,12 @@ trigger_phrases:
   - "research-only path"
 inputs:
   - locked job statement (from /definejob or /brainstormjob)
-  - target source list for online mining (defaults: reddit, amazon, app-store, quora)
+  - "target source list for online mining (defaults: reddit, amazon, app-store, quora)"
   - whether budget exists for a real n=300-600 survey (yes/no — if no, route to /run-synthetic-survey instead)
 outputs:
   - the full six Table 30.1 artifacts, decision-grade
   - explicit "this engagement used online research instead of interviews" note in the canvas + exec summary
-  - data-provenance flag: `mixed_research_real_survey` — distinct from `synthetic` and from `interviews_plus_survey`
+  - "data-provenance flag: `mixed_research_real_survey` — distinct from `synthetic` and from `interviews_plus_survey`"
 chains_to:
   - /exportdeliverables (the bundle)
 delegates_to:

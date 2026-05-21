@@ -1,5 +1,5 @@
 ---
-description: PHASE III ANALYSIS — Run the opportunity formula (Imp + max(Imp − Sat, 0)) on a cleaned survey CSV. Produces the ranked opportunity list, the Opportunity Landscape chart, the per-competitor table, and the WTP band. (Ch 19, 20 + Appendix B) Alias: /opportunitylandscape.
+description: "PHASE III ANALYSIS — Run the opportunity formula (Imp + max(Imp − Sat, 0)) on a cleaned survey CSV. Produces the ranked opportunity list, the Opportunity Landscape chart, the per-competitor table, and the WTP band. (Ch 19, 20 + Appendix B) Alias: /opportunitylandscape."
 argument-hint: <path to cleaned survey CSV>
 ---
 

@@ -1,5 +1,5 @@
 ---
-description: Render the one-page ODI Canvas — a 9-cell board-ready summary that maps every cell to its source artifact. The cover sheet executives actually read. Alias: /canvas.
+description: "Render the one-page ODI Canvas — a 9-cell board-ready summary that maps every cell to its source artifact. The cover sheet executives actually read. Alias: /canvas."
 argument-hint: [--target-segment <segment_id>]
 ---
 

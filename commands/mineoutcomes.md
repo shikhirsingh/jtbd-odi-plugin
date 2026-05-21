@@ -1,6 +1,6 @@
 ---
 description: SYNTHETIC ACCELERATOR — Mine Reddit, X/Twitter, Amazon/Trustpilot reviews, app-store reviews, Quora, and forums for candidate outcomes in strict Ulwick syntax. HYPOTHESIS-GENERATION ONLY — never replaces real interviews.
-argument-hint: "<job statement>" [--sources reddit,amazon,quora,appstore] [--max-per-source 200]
+argument-hint: "\"<job statement>\" [--sources reddit,amazon,quora,appstore] [--max-per-source 200]"
 ---
 
 # /mineoutcomes — Mine public data for outcome candidates

@@ -1,5 +1,5 @@
 ---
-description: Propose 8–15 "complexity factors" — the situational variables that explain why some job-executors struggle more than others — for the survey's profiling block. (Ch 17) Alias: /complexityfactors.
+description: "Propose 8–15 \"complexity factors\" — the situational variables that explain why some job-executors struggle more than others — for the survey's profiling block. (Ch 17) Alias: /complexityfactors."
 argument-hint: <job statement> [--from-mined mined-outcomes.csv]
 ---
 

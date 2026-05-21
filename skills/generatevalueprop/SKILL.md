@@ -1,7 +1,7 @@
 ---
 name: generatevalueprop
 description: Draft the four-part outcome-based value proposition for a chosen segment, plus marketing variants. Implements Chapter 25 + Template 6.
-when_to_use: User has segmentation results and asks for "the value prop", "positioning", or invokes /generatevalueprop. Requires: segment selection, top underserved outcomes for that segment, identified next-best alternative, technical/design reason-to-believe.
+when_to_use: "User has segmentation results and asks for \"the value prop\", \"positioning\", or invokes /generatevalueprop. Requires: segment selection, top underserved outcomes for that segment, identified next-best alternative, technical/design reason-to-believe."
 trigger_phrases:
   - /generatevalueprop
   - "write the value prop"

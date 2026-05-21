@@ -1,5 +1,5 @@
 ---
-description: Qualitative-only ODI (no survey). Produces a directional opportunity hypothesis + 2–4 qualitative archetypes from 8–15 real interviews. (Ch 4 "Lite ODI") Decision-support only, not decision-grade. Alias: /lite.
+description: "Qualitative-only ODI (no survey). Produces a directional opportunity hypothesis + 2–4 qualitative archetypes from 8–15 real interviews. (Ch 4 \"Lite ODI\") Decision-support only, not decision-grade. Alias: /lite."
 argument-hint: <folder of interview transcripts>
 ---
 

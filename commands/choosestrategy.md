@@ -1,5 +1,5 @@
 ---
-description: PHASE V — Place your data on the Jobs-to-be-Done Growth Strategy Matrix and recommend a posture (Differentiated / Dominant / Disruptive / Discrete / Sustaining) per target segment, with explicit data justification. (Ch 23–24) Alias: /growthmatrix.
+description: "PHASE V — Place your data on the Jobs-to-be-Done Growth Strategy Matrix and recommend a posture (Differentiated / Dominant / Disruptive / Discrete / Sustaining) per target segment, with explicit data justification. (Ch 23–24) Alias: /growthmatrix."
 argument-hint: [--segment <segment_id>]
 ---
 

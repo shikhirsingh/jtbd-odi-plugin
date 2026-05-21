@@ -1,5 +1,5 @@
 ---
-description: MASTER ORCHESTRATOR. Run every phase of an ODI engagement end-to-end (Phase I → VII, Ch 29). Two modes: `real` (pauses for human interviews + survey fielding) or `rehearsal` (synthetic respondents, stamped SYNTHETIC). Guarantees all six Table 30.1 artifacts + all seven front-matter capabilities. Aliases: /fullodi.
+description: "MASTER ORCHESTRATOR. Run every phase of an ODI engagement end-to-end (Phase I → VII, Ch 29). Two modes: `real` (pauses for human interviews + survey fielding) or `rehearsal` (synthetic respondents, stamped SYNTHETIC). Guarantees all six Table 30.1 artifacts + all seven front-matter capabilities. Aliases: /fullodi."
 argument-hint: <initial input — draft job statement, product description, or business context> [--mode real|rehearsal]
 ---
 

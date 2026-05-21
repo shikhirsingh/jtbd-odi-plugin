@@ -9,8 +9,8 @@ trigger_phrases:
   - "complete ODI engagement"
   - "do the full ODI"
 inputs:
-  - mode: "real" (default — pauses for real interviews and real survey) or "rehearsal" (uses /run-synthetic-survey end-to-end, marked SYNTHETIC)
-  - initial input: a draft job statement, product description, or business context
+  - "mode: \"real\" (default — pauses for real interviews and real survey) or \"rehearsal\" (uses /run-synthetic-survey end-to-end, marked SYNTHETIC)"
+  - "initial input: a draft job statement, product description, or business context"
 outputs:
   - the full deliverables/ folder (the six Table 30.1 artifacts + canvas + exec summary + coverage report)
   - phase-by-phase progress log

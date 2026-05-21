@@ -10,8 +10,8 @@ trigger_phrases:
   - "hand off the engagement"
 inputs:
   - all prior engagement outputs (skill auto-discovers from standard out-dirs)
-  - target audience for the package: exec / PM / engineering / mixed (default: mixed)
-  - format: zip / folder / pdf-bundle (default: folder + zip)
+  - "target audience for the package: exec / PM / engineering / mixed (default: mixed)"
+  - "format: zip / folder / pdf-bundle (default: folder + zip)"
 outputs:
   - deliverables/ folder containing the 6 artifacts + canvas + exec summary + coverage report
   - deliverables.zip
