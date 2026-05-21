@@ -1,0 +1,18 @@
+id,job_step,direction,metric,object_of_control,clarifier,full_statement
+D-01,Define,Minimize,the time it takes to,determine what to listen to,when starting a new session,Minimize the time it takes to determine what to listen to when starting a new session
+D-02,Define,Minimize,the likelihood of,picking a track that does not fit the mood,,Minimize the likelihood of picking a track that does not fit the mood
+L-01,Locate,Minimize,the time it takes to,locate the desired track in the library,,Minimize the time it takes to locate the desired track in the library
+L-02,Locate,Minimize,the likelihood that,the desired content is unavailable offline,when on a low-connectivity transit segment,Minimize the likelihood that the desired content is unavailable offline when on a low-connectivity transit segment
+P-01,Prepare,Minimize,the time it takes to,connect headphones to the playback device,,Minimize the time it takes to connect headphones to the playback device
+P-02,Prepare,Minimize,the likelihood that,audio re-routes to an unintended device,when entering an environment with other paired devices,Minimize the likelihood that audio re-routes to an unintended device when entering an environment with other paired devices
+P-03,Prepare,Minimize,the time it takes to,get the songs in the desired order for listening,,Minimize the time it takes to get the songs in the desired order for listening
+C-01,Confirm,Increase,the likelihood that,the correct track is selected before initiating playback,,Increase the likelihood that the correct track is selected before initiating playback
+E-01,Execute,Minimize,the likelihood that,audio dropouts occur during playback,,Minimize the likelihood that audio dropouts occur during playback
+E-02,Execute,Minimize,the likelihood that,the music sounds distorted at high volume,,Minimize the likelihood that the music sounds distorted at high volume
+E-03,Execute,Minimize,the likelihood that,battery runs out before the end of a typical listening session,,Minimize the likelihood that battery runs out before the end of a typical listening session
+E-04,Execute,Minimize,the likelihood that,earbuds dislodge from the ear,during high-motion activity,Minimize the likelihood that earbuds dislodge from the ear during high-motion activity
+M-01,Monitor,Increase,the likelihood that,the listener remains aware of important environmental sounds,when in a busy public space,Increase the likelihood that the listener remains aware of important environmental sounds when in a busy public space
+M-02,Monitor,Minimize,the time it takes to,check the remaining battery,without removing the headphones,Minimize the time it takes to check the remaining battery without removing the headphones
+Mo-01,Modify,Minimize,the time it takes to,adjust the volume mid-session,,Minimize the time it takes to adjust the volume mid-session
+Mo-02,Modify,Minimize,the time it takes to,skip to the next track without looking at the device,,Minimize the time it takes to skip to the next track without looking at the device
+Co-01,Conclude,Minimize,the time it takes to,resume the previous session next time,,Minimize the time it takes to resume the previous session next time
