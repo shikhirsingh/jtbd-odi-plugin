@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "jtbd-odi",
   "displayName": "JTBD ODI — Outcome-Driven Innovation Suite",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "An end-to-end Outcome-Driven Innovation (Tony Ulwick / Strategyn) toolkit. Runs every phase of an ODI engagement — job definition, job map, outcome extraction & netting, outcome validation, screener, survey design, opportunity scoring (with WTP analysis), segmentation, competitive analysis, Growth Strategy Matrix posture, value prop, roadmap, engineering specs, ODI Canvas, and a packaged deliverable bundle containing exactly the six Table 30.1 artifacts. Strictly faithful to the v2.4.2 practitioner handbook. Includes an autonomous synthetic-respondent layer (Reddit/X/forum/review mining + virtual personas + simulated survey responses) for hypothesis generation only, with explicit guardrails against replacing real human surveys.",
   "author": {
     "name": "Shikhir Singh",
@@ -26,8 +26,8 @@
     "innovation"
   ],
   "method": {
-    "school": "Ulwick (quantitative ODI). Explicitly NOT Christensen Jobs-as-Progress.",
-    "guide": "jtbd-guide-v2.4.2.md by Shikhir Singh (May 2026)",
+    "school": "Inspired by Ulwick / Strategyn quantitative ODI. Explicitly NOT Christensen Jobs-as-Progress. Independent project; not endorsed by Strategyn or Tony Ulwick.",
+    "guide": "Author's practitioner handbook: https://shikhir.com/blog/jtbd-guide.html (jtbd-guide-v2.4.2 by Shikhir Singh, May 2026)",
     "opportunity_algorithm": "Opportunity = Importance + max(Importance - Satisfaction, 0), top-2-box on a 1-5 scale, normalized 0-10",
     "score_thresholds": {
       "extreme_opportunity": ">= 15",

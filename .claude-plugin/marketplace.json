@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "jtbd-odi",
   "description": "Complete Outcome-Driven Innovation (ODI) toolkit with job definition, outcome extraction, synthetic survey agents, opportunity scoring, segmentation, canvas, value props, roadmaps, and engineering specs.",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "owner": {
     "name": "Shikhir Singh",
     "email": "shikhir@gmail.com",
@@ -14,7 +14,7 @@
       "displayName": "JTBD ODI",
       "description": "Full Ulwick Jobs-to-be-Done / Outcome-Driven Innovation system — job definition through ranked opportunity landscape, segmentation, value prop, roadmap, and engineering specs. Faithful to the v2.4.2 practitioner handbook.",
       "source": "./",
-      "version": "1.4.1",
+      "version": "1.4.2",
       "author": {
         "name": "Shikhir Singh",
         "email": "shikhir@gmail.com"

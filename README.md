@@ -21,9 +21,11 @@
 
 ---
 
-A complete, Ulwick-faithful toolkit for running a real Outcome-Driven Innovation engagement inside Claude Code — from a one-sentence job statement all the way to a ranked opportunity landscape, segmented value proposition, and engineering specs.
+A toolkit for running an Outcome-Driven Innovation–style engagement inside Claude Code — from a one-sentence job statement all the way to a ranked opportunity landscape, segmented value proposition, and engineering specs.
 
-Built against *The Practical Guide to Outcome-Driven Innovation* (v2.4.2, May 2026) by Shikhir Singh, which distills Tony Ulwick / Strategyn's method into an executable playbook.
+It's built against my own practitioner guide, **[*JTBD: A Practical Guide*](https://shikhir.com/blog/jtbd-guide.html)** — a working write-up of how I execute the Ulwick / Strategyn Outcome-Driven Innovation method, with the consulting fluff stripped out. The plugin is one possible execution of that guide.
+
+> ⚠️ **Not endorsed by Strategyn or Tony Ulwick.** This is an independent, unaffiliated project. It is **inspired by** Tony Ulwick's Outcome-Driven Innovation framework and Strategyn's body of work — it is **not blessed, reviewed, or licensed by** either of them. Everything here reflects *my interpretation* of the method based on Ulwick's published writing (*What Customers Want*, *Jobs to Be Done*) and the [Strategyn site](https://strategyn.com). Any mistakes, simplifications, or opinionated takes are mine, not theirs. If you want the canonical, certified version of ODI, talk to Strategyn directly.
 
 > **This plugin teaches the Ulwick school of JTBD, not Christensen's narrative school.** Outputs are strict outcome statements, top-2-box scoring, and the opportunity algorithm `Imp + max(Imp - Sat, 0)`. If you want "jobs as stories," use a different tool.
 
@@ -401,14 +403,17 @@ The decision-grade outputs (`/generatevalueprop`, `/buildroadmap`, `/choosestrat
 
 ## Versioning and provenance
 
-- Method version: ODI v2.4.2 (May 2026)
-- Plugin version: **1.4.1** — adopts the modern `.claude-plugin/` layout (marketplace.json + plugin.json), adds `fix-skills.sh` to reconcile `~/.claude/skills/` and `~/.agents/skills/` for `npx skills add` users, slimmed-down install section
+- **Relationship to Strategyn / Tony Ulwick:** independent, unaffiliated, not endorsed. The plugin is inspired by Ulwick's published ODI work; it is not a Strategyn product and has not been reviewed by them. See the [practitioner guide](https://shikhir.com/blog/jtbd-guide.html) for the author's interpretation of the method.
+- Method version: ODI v2.4.2 (May 2026) — refers to the author's own [practitioner guide](https://shikhir.com/blog/jtbd-guide.html), not a Strategyn release
+- Plugin version: **1.4.2** — adds explicit "not endorsed by Strategyn / Ulwick" disclaimer and links the practitioner guide at shikhir.com/blog/jtbd-guide.html
+- Plugin version: 1.4.1 — adopts the modern `.claude-plugin/` layout (marketplace.json + plugin.json), adds `fix-skills.sh` to reconcile `~/.claude/skills/` and `~/.agents/skills/` for `npx skills add` users, slimmed-down install section
 - Plugin version: 1.4.0 — adds /brainstormjob (discover unclear job from an idea/competitor URL), /researchpath (online research → REAL survey workflow), /extractoutcomes now accepts a folder of transcripts, /outcometospec now produces 7 ship-ready artifacts (user story + PRD + Linear/Jira JSON + ADR + dashboard SQL), /run-synthetic-survey defaults to 10 personas with explicit sample-size honesty, README rewritten in newcomer-first order
 - Plugin version: 1.3.0 — added /whatdoido (reverse lookup), /demo (worked-example tour), QUICKSTART.md, plugin-wide instructions, expanded natural-language triggers
 - Plugin version: 1.2.0 — added /odihelp, /preflight, /identifycustomers, 7 plain-English aliases, GUIDE.md, GLOSSARY.md
 - Plugin version: 1.1.0 — added /validateoutcomes, /generatescreener, /competitiveanalysis, /choosestrategy, /createodicanvas, /exportdeliverables, /runliteodi, /runfullodi + outcome_validator.py, canvas_generator.py, deliverables_exporter.py
-- Method author: Tony Ulwick / Strategyn (lineage), Shikhir Singh (this practitioner handbook)
-- This plugin author: Shikhir Singh
+- Method lineage: Tony Ulwick / Strategyn (original ODI framework — see strategyn.com)
+- Practitioner handbook author: Shikhir Singh (independent interpretation — [shikhir.com/blog/jtbd-guide.html](https://shikhir.com/blog/jtbd-guide.html))
+- This plugin author: Shikhir Singh (independent, unaffiliated with Strategyn)
 
 Every output the plugin produces is stamped with the method version it was generated against so downstream artifacts remain traceable.
 
