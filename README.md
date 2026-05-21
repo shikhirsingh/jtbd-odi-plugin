@@ -133,9 +133,9 @@ Commands are listed in **the order a newcomer would actually run them**. If you'
 
 ## Installation
 
-This repo is a self-contained Claude Code plugin **and** a one-plugin marketplace catalog. The recommended path is the marketplace one — it's the same install flow Anthropic uses for `anthropics/skills`.
+This repo ships as a Claude Code plugin (`.claude-plugin/marketplace.json` + `plugin.json`) and works in Cowork. Pick the install path that matches your setup — both end up with skills under `~/.claude/skills/`, which is what Claude Code and Cowork scan.
 
-### Option A — Claude Code marketplace (recommended)
+### Recommended — Claude Code marketplace
 
 From inside Claude Code:
 
@@ -144,81 +144,36 @@ From inside Claude Code:
 /plugin install jtbd-odi@jtbd-odi
 ```
 
-Claude Code clones the repo into `~/.claude/plugins/cache/jtbd-odi/jtbd-odi/<version>/`, registers all 29 skills, 47 commands, and 4 agents, and namespaces them under `jtbd-odi:` (so `/jtbd-odi:odihelp`, etc.). Update with `/plugin marketplace update jtbd-odi`.
-
-Then install the Python deps used by the analysis scripts:
+Commands are namespaced as `/jtbd-odi:odihelp`, etc. Update with `/plugin marketplace update jtbd-odi`. Then install the Python deps:
 
 ```bash
 pip install -r ~/.claude/plugins/cache/jtbd-odi/jtbd-odi/*/scripts/requirements.txt
 ```
 
-### Option B — manual clone (no marketplace)
-
-If you can't or don't want to use the marketplace machinery, drop the skills directly into the personal-skills directory:
+### Alternative — clone + run `fix-skills.sh`
 
 ```bash
 git clone https://github.com/shikhirsingh/jtbd-odi-plugin.git
 cd jtbd-odi-plugin
+./fix-skills.sh
 pip install -r scripts/requirements.txt
-
-# install every skill into ~/.claude/skills/ (personal scope)
-mkdir -p ~/.claude/skills
-for d in skills/*/; do
-  name=$(basename "$d")
-  ln -sf "$(pwd)/$d" "$HOME/.claude/skills/$name"
-done
-
-# install every slash command into ~/.claude/commands/
-mkdir -p ~/.claude/commands
-for f in commands/*.md; do
-  ln -sf "$(pwd)/$f" "$HOME/.claude/commands/$(basename "$f")"
-done
-
-# install every subagent into ~/.claude/agents/
-mkdir -p ~/.claude/agents
-for f in agents/*.md; do
-  ln -sf "$(pwd)/$f" "$HOME/.claude/agents/$(basename "$f")"
-done
 ```
 
-This is the canonical filesystem layout Claude Code scans on startup (`~/.claude/skills/<name>/SKILL.md`, `~/.claude/commands/<name>.md`, `~/.claude/agents/<name>.md`). For *project-scoped* installs, replace `~/.claude/` with `.claude/` inside your project root.
-
-### Option C — `npx skills add` (cross-agent installer)
-
-[`vercel-labs/skills`](https://github.com/vercel-labs/skills) is a multi-agent installer:
-
-```bash
-npx skills add shikhirsingh/jtbd-odi-plugin -a claude-code
-```
-
-> ⚠️ **Known bug** ([vercel-labs/skills#851](https://github.com/vercel-labs/skills/issues/851)): with `-g` (global) + `-a claude-code`, the CLI writes skills to `~/.agents/skills/` but **does not symlink them into `~/.claude/skills/`**, so Claude Code can't see them. If skills don't appear, run:
->
-> ```bash
-> for d in ~/.agents/skills/*/; do
->   name=$(basename "$d")
->   ln -sf "$d" "$HOME/.claude/skills/$name"
-> done
-> ```
->
-> If you hit this, prefer **Option A** instead — the marketplace path doesn't have this bug.
+`fix-skills.sh` symlinks every skill, command, and agent into both `~/.claude/` (where Claude Code and Cowork look) and `~/.agents/` (where `npx skills add` writes), so the plugin is visible to all three. It's idempotent — re-run after `git pull` to pick up updates. If you previously ran `npx skills add shikhirsingh/jtbd-odi-plugin -a claude-code` and the skills didn't show up, run this script from the cloned repo to fix it.
 
 ### Verify
 
-Restart Claude Code (or `:rebuild` if your client supports it), then:
+Restart Claude Code (or `:rebuild`), then:
 
 ```
 /help
 ```
 
-You should see the commands listed (under `jtbd-odi:` if installed via Option A, or unnamespaced if via Option B/C). Try `/odihelp` to confirm the newcomer skill responds.
-
-### A note on Cowork
-
-Cowork (Anthropic's desktop agentic product) consumes the same `SKILL.md` format. The recommended install path inside Cowork is its **Customize → Skills** UI — skills dropped into `~/.claude/skills/` from the terminal are usable within a Cowork session but [are not currently listed in the Customize UI](https://github.com/anthropics/claude-code/issues/50669) (open bug as of May 2026). If you want the Cowork UI to show the plugin, upload the `skills/<name>/` folders through the UI; otherwise Option B above works at runtime.
+You should see `/odihelp`, `/demo`, `/runfullodi`, etc. Try `/odihelp` to confirm.
 
 ### Python dependencies
 
-The analysis skills (`/computescores`, `/runsegmentation`, the synthetic-survey orchestrator) call Python scripts in `scripts/`. They require:
+The analysis skills (`/computescores`, `/runsegmentation`, synthetic survey orchestrator) call scripts in `scripts/`:
 
 ```
 pandas>=2.0
@@ -228,7 +183,7 @@ matplotlib>=3.7
 factor-analyzer>=0.4
 ```
 
-A `requirements.txt` is included. Everything else runs as pure Markdown + skill prompts.
+A `requirements.txt` is included.
 
 ---
 
@@ -372,7 +327,10 @@ If you remove the banner, you are deliberately misusing the tool.
 ```
 jtbd-odi-plugin/
 ├── .claude-plugin/
-│   └── plugin.json
+│   ├── marketplace.json     ← one-plugin marketplace catalog
+│   ├── plugin.json          ← plugin manifest (method config + guardrails)
+│   └── instructions.md      ← plugin-wide behavioral defaults
+├── fix-skills.sh            ← post-clone installer (symlinks into ~/.claude/ and ~/.agents/)
 ├── README.md
 ├── commands/                ← thin slash-command entry points
 │   ├── definejob.md
@@ -444,7 +402,8 @@ The decision-grade outputs (`/generatevalueprop`, `/buildroadmap`, `/choosestrat
 ## Versioning and provenance
 
 - Method version: ODI v2.4.2 (May 2026)
-- Plugin version: **1.4.0** — adds /brainstormjob (discover unclear job from an idea/competitor URL), /researchpath (online research → REAL survey workflow), /extractoutcomes now accepts a folder of transcripts, /outcometospec now produces 7 ship-ready artifacts (user story + PRD + Linear/Jira JSON + ADR + dashboard SQL), /run-synthetic-survey defaults to 10 personas with explicit sample-size honesty, README rewritten in newcomer-first order
+- Plugin version: **1.4.1** — adopts the modern `.claude-plugin/` layout (marketplace.json + plugin.json), adds `fix-skills.sh` to reconcile `~/.claude/skills/` and `~/.agents/skills/` for `npx skills add` users, slimmed-down install section
+- Plugin version: 1.4.0 — adds /brainstormjob (discover unclear job from an idea/competitor URL), /researchpath (online research → REAL survey workflow), /extractoutcomes now accepts a folder of transcripts, /outcometospec now produces 7 ship-ready artifacts (user story + PRD + Linear/Jira JSON + ADR + dashboard SQL), /run-synthetic-survey defaults to 10 personas with explicit sample-size honesty, README rewritten in newcomer-first order
 - Plugin version: 1.3.0 — added /whatdoido (reverse lookup), /demo (worked-example tour), QUICKSTART.md, plugin-wide instructions, expanded natural-language triggers
 - Plugin version: 1.2.0 — added /odihelp, /preflight, /identifycustomers, 7 plain-English aliases, GUIDE.md, GLOSSARY.md
 - Plugin version: 1.1.0 — added /validateoutcomes, /generatescreener, /competitiveanalysis, /choosestrategy, /createodicanvas, /exportdeliverables, /runliteodi, /runfullodi + outcome_validator.py, canvas_generator.py, deliverables_exporter.py

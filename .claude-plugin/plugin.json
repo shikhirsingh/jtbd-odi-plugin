@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "jtbd-odi",
+  "displayName": "JTBD ODI — Outcome-Driven Innovation Suite",
+  "version": "1.4.1",
+  "description": "An end-to-end Outcome-Driven Innovation (Tony Ulwick / Strategyn) toolkit. Runs every phase of an ODI engagement — job definition, job map, outcome extraction & netting, outcome validation, screener, survey design, opportunity scoring (with WTP analysis), segmentation, competitive analysis, Growth Strategy Matrix posture, value prop, roadmap, engineering specs, ODI Canvas, and a packaged deliverable bundle containing exactly the six Table 30.1 artifacts. Strictly faithful to the v2.4.2 practitioner handbook. Includes an autonomous synthetic-respondent layer (Reddit/X/forum/review mining + virtual personas + simulated survey responses) for hypothesis generation only, with explicit guardrails against replacing real human surveys.",
+  "author": {
+    "name": "Shikhir Singh",
+    "email": "shikhir@gmail.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/shikhirsingh/jtbd-odi-plugin",
+  "repository": "https://github.com/shikhirsingh/jtbd-odi-plugin",
+  "keywords": [
+    "jtbd",
+    "jobs-to-be-done",
+    "odi",
+    "outcome-driven-innovation",
+    "ulwick",
+    "strategyn",
+    "product-strategy",
+    "voice-of-customer",
+    "opportunity-scoring",
+    "segmentation",
+    "growth-strategy-matrix",
+    "innovation"
+  ],
+  "method": {
+    "school": "Ulwick (quantitative ODI). Explicitly NOT Christensen Jobs-as-Progress.",
+    "guide": "jtbd-guide-v2.4.2.md by Shikhir Singh (May 2026)",
+    "opportunity_algorithm": "Opportunity = Importance + max(Importance - Satisfaction, 0), top-2-box on a 1-5 scale, normalized 0-10",
+    "score_thresholds": {
+      "extreme_opportunity": ">= 15",
+      "low_hanging_fruit": "12-15",
+      "worth_considering": "10-12",
+      "appropriately_served": "< 10",
+      "overserved": "satisfaction > importance"
+    },
+    "outcome_syntax": "direction(Minimize|Increase) + metric(time|likelihood|frequency|amount) + object_of_control + optional_contextual_clarifier",
+    "universal_job_map": ["Define", "Locate", "Prepare", "Confirm", "Execute", "Monitor", "Modify", "Conclude"],
+    "twenty_percent_rule": "To win share on an underserved outcome, the new product must satisfy it ~20% better than the best competitor (Ch 22, Ch 28)."
+  },
+  "table_30_1_artifacts_produced_by": {
+    "1_ranked_opportunity_list":           ["/computescores"],
+    "2_outcome_based_segments":            ["/runsegmentation"],
+    "3_strategic_posture":                 ["/choosestrategy"],
+    "4_outcome_based_value_proposition":   ["/generatevalueprop"],
+    "5_outcome_attack_roadmap":            ["/buildroadmap"],
+    "6_engineering_specs":                 ["/outcometospec"]
+  },
+  "front_matter_capabilities_enabled_by": {
+    "1_know_what_to_build":         "/computescores + /runsegmentation",
+    "2_identify_beachhead":         "/runsegmentation + /choosestrategy",
+    "3_price_into_wtp_band":        "/computescores (wtp_analysis) + /choosestrategy",
+    "4_engineering_measurable":     "/outcometospec",
+    "5_marketing_lands":            "/generatevalueprop (with marketing variants)",
+    "6_strategic_posture_evidence": "/choosestrategy (Growth Matrix)",
+    "7_repeatable_capability":      "/exportdeliverables (outcome library + survey instrument re-export)"
+  },
+  "orchestrators": {
+    "runfullodi":            "Master orchestrator. real or rehearsal mode. 4-8 weeks (real). Decision-grade.",
+    "researchpath":          "Online research replaces interviews; REAL survey provides decision-grade scoring. 3-5 weeks.",
+    "runliteodi":            "Qualitative-only (no survey). Directional, not decision-grade. 2-3 weeks.",
+    "run-synthetic-survey":  "Full synthetic pipeline. Hypothesis-only. 30-60 min.",
+    "exportdeliverables":    "Final bundler. Refuses to ship without all six Table 30.1 artifacts.",
+    "odihelp":               "Newcomer navigator. /start, /help-odi.",
+    "whatdoido":             "Reverse lookup — 'I have X file, what command?'.",
+    "preflight":             "Should you even do ODI? Ch 4 checklist.",
+    "demo":                  "See realistic outputs from a worked example (Bosch CS20). No commitment.",
+    "brainstormjob":         "Discover the underlying job for an idea / market / product you don't understand."
+  },
+  "newcomer_docs": {
+    "QUICKSTART.md": "2-minute intro. The 4 entry-point commands side by side. Read this first.",
+    "GUIDE.md":      "10-minute newcomer journey. The 3 paths, every command, every dependency.",
+    "GLOSSARY.md":   "Every ODI term translated into plain English."
+  },
+  "newcomer_entry_points": {
+    "odihelp":   "I don't know what to do",
+    "demo":      "Show me what this produces — no commitment",
+    "whatdoido": "I have a file / data — what command should I run?",
+    "preflight": "Is ODI even the right method for me?"
+  },
+  "guardrails": {
+    "synthetic_data_warning": "All outputs from /mineoutcomes, /hypothesizecomplexity, /sentimentlandscape, and /run-synthetic-survey are HYPOTHESIS-GENERATION accelerators only. They MUST NOT replace the real human survey (n=300-600) required by the guide (Part IV, Chapter 16, Appendix A). Every synthetic deliverable is stamped with a SYNTHETIC banner and a 'next: validate with n>=300 real humans' instruction. /generatevalueprop, /buildroadmap, and /exportdeliverables refuse to be chained off synthetic results without that validation.",
+    "no_christensen_drift": "Outputs must remain Ulwick-faithful: strict outcome syntax, top-2-box, opportunity formula, outcome-based segmentation, job-map anchoring. The plugin refuses to produce 'milkshake-style' narrative jobs or persona-as-segment outputs.",
+    "no_discrete_celebration": "If /choosestrategy places the project in the Discrete cell, output a 'this is a trap — exit' warning rather than a roadmap (Ch 23).",
+    "validation_gate": "/generatesurvey is hard-gated on /validateoutcomes verdict != 'fail'. /exportdeliverables refuses to ship if any of the six Table 30.1 artifacts is missing."
+  }
+}
