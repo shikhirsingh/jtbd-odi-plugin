@@ -25,9 +25,9 @@ A toolkit for running an Outcome-Driven Innovation–style engagement inside Cla
 
 It's built against my own practitioner guide, **[*JTBD: A Practical Guide*](https://shikhir.com/blog/jtbd-guide.html)** — a working write-up of how I execute the Ulwick / Strategyn Outcome-Driven Innovation method, with the consulting fluff stripped out. The plugin is one possible execution of that guide.
 
-> ⚠️ **Not endorsed by Strategyn or Tony Ulwick.** This is an independent, unaffiliated project. It is **inspired by** Tony Ulwick's Outcome-Driven Innovation framework and Strategyn's body of work — it is **not blessed, reviewed, or licensed by** either of them. Everything here reflects *my interpretation* of the method based on Ulwick's published writing (*What Customers Want*, *Jobs to Be Done*) and the [Strategyn site](https://strategyn.com). Any mistakes, simplifications, or opinionated takes are mine, not theirs. If you want the canonical, certified version of ODI, talk to Strategyn directly.
+> ⚠️ **Not endorsed by Strategyn or Tony Ulwick** — independent, unaffiliated, inspired by their published work.
 
-> **This plugin teaches the Ulwick school of JTBD, not Christensen's narrative school.** Outputs are strict outcome statements, top-2-box scoring, and the opportunity algorithm `Imp + max(Imp - Sat, 0)`. If you want "jobs as stories," use a different tool.
+> **This plugin implements the Ulwick school of JTBD, not Christensen's narrative school.** Outputs are strict outcome statements, top-2-box scoring, and the opportunity algorithm `Imp + max(Imp - Sat, 0)`. If you want "jobs as stories," use a different tool.
 
 ---
 
@@ -419,4 +419,8 @@ Every output the plugin produces is stamped with the method version it was gener
 
 ## License
 
-MIT.
+MIT — see [LICENSE](LICENSE).
+
+---
+
+Thanks to Tony Ulwick for making the world a better place by helping smart people not waste time building products nobody wants.
