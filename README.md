@@ -133,34 +133,88 @@ Commands are listed in **the order a newcomer would actually run them**. If you'
 
 ## Installation
 
-### Option A — install via Claude Code's marketplace
+This repo is a self-contained Claude Code plugin **and** a one-plugin marketplace catalog. The recommended path is the marketplace one — it's the same install flow Anthropic uses for `anthropics/skills`.
 
-```bash
-# from inside Claude Code
-/plugin install jtbd-odi
+### Option A — Claude Code marketplace (recommended)
+
+From inside Claude Code:
+
+```
+/plugin marketplace add shikhirsingh/jtbd-odi-plugin
+/plugin install jtbd-odi@jtbd-odi
 ```
 
-### Option B — install locally
+Claude Code clones the repo into `~/.claude/plugins/cache/jtbd-odi/jtbd-odi/<version>/`, registers all 29 skills, 47 commands, and 4 agents, and namespaces them under `jtbd-odi:` (so `/jtbd-odi:odihelp`, etc.). Update with `/plugin marketplace update jtbd-odi`.
+
+Then install the Python deps used by the analysis scripts:
+
+```bash
+pip install -r ~/.claude/plugins/cache/jtbd-odi/jtbd-odi/*/scripts/requirements.txt
+```
+
+### Option B — manual clone (no marketplace)
+
+If you can't or don't want to use the marketplace machinery, drop the skills directly into the personal-skills directory:
 
 ```bash
 git clone https://github.com/shikhirsingh/jtbd-odi-plugin.git
 cd jtbd-odi-plugin
-
-# install Python deps (for the scoring + segmentation scripts)
 pip install -r scripts/requirements.txt
 
-# link it into Claude Code
-mkdir -p ~/.claude/plugins
-ln -s "$(pwd)" ~/.claude/plugins/jtbd-odi
+# install every skill into ~/.claude/skills/ (personal scope)
+mkdir -p ~/.claude/skills
+for d in skills/*/; do
+  name=$(basename "$d")
+  ln -sf "$(pwd)/$d" "$HOME/.claude/skills/$name"
+done
+
+# install every slash command into ~/.claude/commands/
+mkdir -p ~/.claude/commands
+for f in commands/*.md; do
+  ln -sf "$(pwd)/$f" "$HOME/.claude/commands/$(basename "$f")"
+done
+
+# install every subagent into ~/.claude/agents/
+mkdir -p ~/.claude/agents
+for f in agents/*.md; do
+  ln -sf "$(pwd)/$f" "$HOME/.claude/agents/$(basename "$f")"
+done
 ```
 
-Restart Claude Code. Verify with:
+This is the canonical filesystem layout Claude Code scans on startup (`~/.claude/skills/<name>/SKILL.md`, `~/.claude/commands/<name>.md`, `~/.claude/agents/<name>.md`). For *project-scoped* installs, replace `~/.claude/` with `.claude/` inside your project root.
+
+### Option C — `npx skills add` (cross-agent installer)
+
+[`vercel-labs/skills`](https://github.com/vercel-labs/skills) is a multi-agent installer:
+
+```bash
+npx skills add shikhirsingh/jtbd-odi-plugin -a claude-code
+```
+
+> ⚠️ **Known bug** ([vercel-labs/skills#851](https://github.com/vercel-labs/skills/issues/851)): with `-g` (global) + `-a claude-code`, the CLI writes skills to `~/.agents/skills/` but **does not symlink them into `~/.claude/skills/`**, so Claude Code can't see them. If skills don't appear, run:
+>
+> ```bash
+> for d in ~/.agents/skills/*/; do
+>   name=$(basename "$d")
+>   ln -sf "$d" "$HOME/.claude/skills/$name"
+> done
+> ```
+>
+> If you hit this, prefer **Option A** instead — the marketplace path doesn't have this bug.
+
+### Verify
+
+Restart Claude Code (or `:rebuild` if your client supports it), then:
 
 ```
 /help
 ```
 
-You should see the 16 `/...` commands listed under "jtbd-odi".
+You should see the commands listed (under `jtbd-odi:` if installed via Option A, or unnamespaced if via Option B/C). Try `/odihelp` to confirm the newcomer skill responds.
+
+### A note on Cowork
+
+Cowork (Anthropic's desktop agentic product) consumes the same `SKILL.md` format. The recommended install path inside Cowork is its **Customize → Skills** UI — skills dropped into `~/.claude/skills/` from the terminal are usable within a Cowork session but [are not currently listed in the Customize UI](https://github.com/anthropics/claude-code/issues/50669) (open bug as of May 2026). If you want the Cowork UI to show the plugin, upload the `skills/<name>/` folders through the UI; otherwise Option B above works at runtime.
 
 ### Python dependencies
 
